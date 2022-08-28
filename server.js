@@ -14,8 +14,7 @@ io.on("connection", socket => {
     socket.to(room).emit("receive-message", `${username} has joined room: ${room}.`);
   });
   socket.on("leave-room", (username, room) => {
-    console.log(room, "room");
-    socket.to(room).emit("receive-message", `${username} has left room: ${room}.`);
+    socket.to(room).emit("receive-message", `${username} has left the room.`);
     socket.leave(room);
   });
   socket.on("send-message", (username, message, room) => {
